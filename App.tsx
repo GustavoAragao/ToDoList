@@ -11,12 +11,14 @@ import { TrashButton } from './src/Components/TrashButton';
 export default function App() {
   return (
     <View style={styles.container}>
+       <SearchTask/>
       <View style={styles.optionsHomeContainer}>
-        <SearchTask/>
         <TrashButton/>
+        <CreateTask/>
+  
       </View>
       
-      <CreateTask/>
+  
       <View style={{flexDirection: 'row'}}>
       <CardNumber/>
       <CardNumber/>
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
     width:398,
     height:42,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'center',
+    gap: 16
   }
 });
