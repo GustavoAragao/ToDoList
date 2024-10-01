@@ -4,10 +4,19 @@ import { Task } from './src/Components/Task';
 import { CardNumber } from './src/Components/CardNumber';
 import { SearchButton } from './src/Components/SearchTask/styles';
 import { SearchTask } from './src/Components/SearchTask';
+import { CreateTask } from './src/Components/CreateTask';
+import { Container } from './src/Components/Task/styles';
+import { TrashButton } from './src/Components/TrashButton';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <SearchTask/>
+      <View style={styles.optionsHomeContainer}>
+        <SearchTask/>
+        <TrashButton/>
+      </View>
+      
+      <CreateTask/>
       <View style={{flexDirection: 'row'}}>
       <CardNumber/>
       <CardNumber/>
@@ -17,7 +26,6 @@ export default function App() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ffff',
@@ -27,4 +35,10 @@ const styles = StyleSheet.create({
     paddingTop: 64,
     gap: 16
   },
+  optionsHomeContainer: {
+    width:398,
+    height:42,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 });
