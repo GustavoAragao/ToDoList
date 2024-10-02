@@ -4,7 +4,7 @@ import {Feather} from '@expo/vector-icons'
 export function CardNumber(){
     return(
         <Container>
-            <Feather name="clock" size={24} color="black" />
+            <Feather name="check" size={24} color="black" />
             <CardTitle> Concluídas </CardTitle>
             <CardValue> 5 </CardValue>
         </Container>

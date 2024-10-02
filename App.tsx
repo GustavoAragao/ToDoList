@@ -1,47 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Task } from './src/Components/Task';
-import { CardNumber } from './src/Components/CardNumber';
-import { SearchButton } from './src/Components/SearchTask/styles';
-import { SearchTask } from './src/Components/SearchTask';
-import { CreateTask } from './src/Components/CreateTask';
-import { Container } from './src/Components/Task/styles';
-import { TrashButton } from './src/Components/TrashButton';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import PresentationApp from '../ToDoList/src/Screens/PresentationApp'
+import HomeTasks from '../ToDoList/src/Screens/HomeTasks'
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-       <SearchTask/>
-      <View style={styles.optionsHomeContainer}>
-        <TrashButton/>
-        <CreateTask/>
-  
-      </View>
-      
-  
-      <View style={{flexDirection: 'row'}}>
-      <CardNumber/>
-      <CardNumber/>
-      </View>
-      <Task/>
-      <StatusBar style="auto" />
-    </View>
+  return(
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName='PresentationApp' screenOptions={{headerShown:false}}>
+          <Stack.Screen 
+            name="Home" 
+            component={PresentationApp} 
+          />
+          <Stack.Screen 
+            name="HomeTasks" 
+            component={HomeTasks} 
+          />
+        </Stack.Navigator>
+    </NavigationContainer>
+    
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ffff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
-    paddingTop: 64,
-    gap: 16
-  },
-  optionsHomeContainer: {
-    width:398,
-    height:42,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    gap: 16
-  }
-});

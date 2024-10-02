@@ -6,17 +6,16 @@ export const Container = styled.TouchableOpacity`
     padding : 10px;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #4FAC67;
     border-radius: 10px;
     overflow: hidden;
-    gap: 8px;
     margin-right: 5px;
 `;
 
 export const CardTitle = styled.Text`
     color: #ffff; 
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 
 `;
