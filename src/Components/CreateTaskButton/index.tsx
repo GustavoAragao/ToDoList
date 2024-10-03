@@ -6,7 +6,7 @@ interface CreateTaskProps {
   onPress?: () => void;
 }
 
-export function CreateTask({isGreen = false, onPress}: CreateTaskProps){   /*Valor padrão = false*/
+export default function CreateTaskButton({isGreen = false, onPress}: CreateTaskProps){   /*Valor padrão = false*/
   return(
     <ContainerCreate isGreen={isGreen} onPress={onPress}>
       <Feather name = "plus" size={24} color={'white'}></Feather>

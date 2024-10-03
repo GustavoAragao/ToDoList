@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Task } from '../../Components/Task';
 import { CardNumber } from '../../Components/CardNumber'; 
 import { SearchTask } from '../../Components/SearchTask'; 
-import { CreateTask } from '../../Components/CreateTask'; 
+import  CreateTaskButton from '../../Components/CreateTaskButton'; 
 import { TrashButton } from '../../Components/TrashButton'; 
 import { FavButton } from '../../Components/FavButton';
 import { useState } from 'react'; 
@@ -20,7 +20,7 @@ export default function HomeTasks( { navigation }: {navigation: any}) {
         <View style={styles.optionsHomeContainer}>
             <FavButton/>
             <TrashButton/>
-            <CreateTask onPress={() => navigation.pop()}/>
+            <CreateTaskButton onPress={() => navigation.navigate("CreateTask")}/>
     
         </View>
         <View style={{flexDirection: 'row'}}>
