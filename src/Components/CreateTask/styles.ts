@@ -1,14 +1,18 @@
 import styled from "styled-components/native";
 
-export const ContainerCreate = styled.TouchableOpacity`
+interface ContainerProps {
+  isGreen?: boolean;
+}
+
+export const ContainerCreate = styled.TouchableOpacity<ContainerProps>`
   width: 172px;
   height: 42px;
   align-items:center;
   flex-direction: row;
   justify-content:center;
-  background-color: #5C0F8B;
+  background-color: ${({ isGreen }) => (isGreen ? '#4FAC67' : '#5C0F8B')};
   border-radius: 20px;
-  gap: 16
+  gap: 8px
 `
 export const TextCreate = styled.Text`
   font-size: 20px;

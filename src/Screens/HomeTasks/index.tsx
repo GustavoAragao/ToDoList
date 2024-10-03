@@ -7,6 +7,7 @@ import { CreateTask } from '../../Components/CreateTask';
 import { TrashButton } from '../../Components/TrashButton'; 
 import { FavButton } from '../../Components/FavButton';
 import { useState } from 'react'; 
+import { CardCreateTask } from '../../Components/CardCreateTask';
 
 export default function App() {
   
@@ -26,7 +27,7 @@ export default function App() {
         <CardNumber/>
         <CardNumber/>
         </View>
-
+        <CardCreateTask/>
         <FlatList 
             data={tasks}
             keyExtractor={(item, index) => index.toString()}
@@ -34,8 +35,10 @@ export default function App() {
                 ({item}) => (<Task/>)
             }
             ListEmptyComponent={() =>( <View>
-                <Text> Sem tarefas cadastradas! </Text> 
-                </View> )}
+                                          <Text> Sem tarefas cadastradas! </Text> 
+            
+                                       </View> 
+                                      )}
 
         />
             
