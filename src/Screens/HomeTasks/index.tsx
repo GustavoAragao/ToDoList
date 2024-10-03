@@ -9,7 +9,7 @@ import { FavButton } from '../../Components/FavButton';
 import { useState } from 'react'; 
 import { CardCreateTask } from '../../Components/CardCreateTask';
 
-export default function App() {
+export default function HomeTasks( { navigation }: {navigation: any}) {
   
     const [tasks, setTask] = useState<{description: String; date: Date; status: Boolean; fav: Boolean}[]>([]);
     const [taskText, setTaskText] = useState("");
@@ -20,7 +20,7 @@ export default function App() {
         <View style={styles.optionsHomeContainer}>
             <FavButton/>
             <TrashButton/>
-            <CreateTask/>
+            <CreateTask onPress={() => navigation.pop()}/>
     
         </View>
         <View style={{flexDirection: 'row'}}>
