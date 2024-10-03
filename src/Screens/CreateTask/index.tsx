@@ -1,12 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { StartButton } from '../../Components/StartButton';
 
-export default function CreateTask() {
-    <View style = { {flex: 1, alignItems: 'center'}}>
-        <Text style = {{color: '#0000'}}> 
-            Olá Mundo 
-        </Text>
+export default function CreateTask({ navigation }: { navigation: any }) {
+  console.log("Tela CreateTask abriu")
+  return (
+    <View style={styles.container}>
+      <StartButton onPress={()=>navigation.pop()}></StartButton>
     </View>
-
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
