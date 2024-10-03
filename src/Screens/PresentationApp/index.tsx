@@ -4,6 +4,7 @@ import { StartHome } from '../../Components/StartHome';
 import { StartButton } from '../../Components/StartButton';
 
 export default function PresentationHome({ navigation }: { navigation: any }) {
+  console.log("tela PresentationApp abriu")
   return (
     <View style={styles.container}>
       <StartHome>
