@@ -1,6 +1,6 @@
 import {Feather} from '@expo/vector-icons'
+import {Container, TaskText, TaskDone, TaskIcon} from "./styles";
 
-import {Container, TaskText, TaskDone, TaskDelete} from "./styles";
 
 export function Task(){
     return(
@@ -9,9 +9,9 @@ export function Task(){
                 <Feather name="square" size={24} color="black" />
             </TaskDone>
             <TaskText> Tarefa </TaskText>
-            <TaskDelete>
+            <TaskIcon>
                 <Feather name="check" size={24} color="black" />
-            </TaskDelete>
+            </TaskIcon>
         </Container>
     );
 }

@@ -31,7 +31,6 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
         <CardNumber/>
         </View>
       
-        <CardCreateTask/>
         <FlatList 
             data={tasks}
             keyExtractor={(item, index) => index.toString()}
@@ -40,7 +39,6 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
             }
             ListEmptyComponent={() =>( <View>
                                           <Text> Sem tarefas cadastradas! </Text> 
-            
                                        </View> 
                                       )}
 
@@ -50,7 +48,6 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
         </View>
     );
 }
-
 
 const styles = StyleSheet.create({
   container: {

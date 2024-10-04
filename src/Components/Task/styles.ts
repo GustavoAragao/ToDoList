@@ -27,7 +27,7 @@ export const TaskDone = styled.TouchableOpacity`
     align-items: center;
 `;
 
-export const TaskDelete = styled.View`
+export const TaskIcon = styled.View`
     width: 15%;
     justify-content: center;
     align-items: center;
