@@ -9,7 +9,7 @@ interface CreateTaskProps {
 export default function CreateTaskButton({isGreen = false, onPress}: CreateTaskProps){   /*Valor padrão = false*/
   return(
     <ContainerCreate isGreen={isGreen} onPress={onPress}>
-      <Feather name = "plus" size={24} color={'white'}></Feather>
+      {!isGreen && <Feather name = "plus" size={24} color={'white'}></Feather>}
       <TextCreate>Criar tarefa</TextCreate>
     </ContainerCreate>
   )

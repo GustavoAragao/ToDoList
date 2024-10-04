@@ -1,6 +1,11 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.TouchableOpacity`
+
+interface ContainerProps {
+    isFinished?: boolean;
+}
+  
+export const Container = styled.TouchableOpacity<ContainerProps>`
     width: 100%;
     height: 44px;
     flex-direction: row;
@@ -10,18 +15,18 @@ export const Container = styled.TouchableOpacity`
     background-color: white;
     overflow: hidden;
     border-width: 3px;  /* Define a largura da borda */
-    border-color: #4FAC67; /*no figma a cor é baseada no status da tarefa*/
-    
+    border-color: ${({ isFinished}) => (isFinished? '#4FAC67' : '#F1950C')};
+    margin-bottom: 20px;  /* Adiciona um espaçamento de 10px abaixo de cada tarefa */
 `;
 
-export const TaskText = styled.Text`
-    color: #4FAC67; /*no figma a cor é baseada no status da tarefa*/
+export const TaskText = styled.Text<ContainerProps>`
+    color:  ${({ isFinished }) => (isFinished? '#4FAC67' : '#F1950C')};
     font-size: 20px;
     font-weight: bold;
 
 `;
 
-export const TaskDone = styled.TouchableOpacity`
+export const TaskCheck = styled.TouchableOpacity`
     width: 15%;
     justify-content: center;
     align-items: center;

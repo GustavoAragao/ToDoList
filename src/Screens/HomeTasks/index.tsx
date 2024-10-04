@@ -6,44 +6,51 @@ import { SearchTask } from '../../Components/SearchTask';
 import  CreateTaskButton  from '../../Components/CreateTaskButton'; 
 import { TrashButton } from '../../Components/TrashButton'; 
 import { FavButton } from '../../Components/FavButton';
-import { useState } from 'react'; 
+import { useContext, useState } from 'react'; 
 import { CardCreateTask } from '../../Components/CardCreateTask';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { TaskContext } from '../../Context/TaskContext';
+import { useFocusEffect } from '@react-navigation/native';
+import React from 'react';
+import { TaskProps } from '../../Utils/types';
 
 export default function HomeTasks({ navigation }: { navigation: any }) {
-  
-    const [tasks, setTask] = useState<{description: String; date: Date; status: Boolean; fav: Boolean}[]>([]);
-    const [taskText, setTaskText] = useState("");
+
+    const { tasks,clearTasks,handleTaskStatus } = useContext(TaskContext);
     console.log("tela HomeTasks abriu")
+
+
     return (
         <View style={styles.container}>
         <SearchTask/>
         <View style={styles.optionsHomeContainer}>
             <FavButton/>
-            <TrashButton/>
+            <TrashButton onPress={clearTasks}/>
             <CreateTaskButton onPress={() => {
               console.log("Navegando para CreateTask");
               navigation.navigate('CreateTask');
             }} />
-    
         </View>
         <View style={{flexDirection: 'row'}}>
         <CardNumber/>
         <CardNumber/>
         </View>
       
-        <FlatList 
+        <FlatList style={{marginTop:16 }}
             data={tasks}
             keyExtractor={(item, index) => index.toString()}
-            renderItem={
-                ({item}) => (<Task/>)
-            }
+            renderItem={({ item }) => {
+              console.log(item.title)
+              console.log(item.description)
+              return <Task title={item.title} isFinished = {item.isFinished} onCheck={()=>handleTaskStatus(item)}/>;
+            }}
             ListEmptyComponent={() =>( <View>
                                           <Text> Sem tarefas cadastradas! </Text> 
                                        </View> 
                                       )}
 
         />
-            
+        
         <StatusBar style="auto" />
         </View>
     );
@@ -64,4 +71,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   }
+  
 });
