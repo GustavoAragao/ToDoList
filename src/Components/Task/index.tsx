@@ -2,9 +2,7 @@ import {Feather} from '@expo/vector-icons'
 import {Container, TaskText, TaskCheck, TaskIcon} from "./styles";
 import { TaskProps } from '../../Utils/types';
 
-
 export function Task(props: TaskProps){
-    console.log(props.title)
     return(
         <Container isFinished={props.isFinished}>
             <TaskCheck onPress={props.onCheck} >

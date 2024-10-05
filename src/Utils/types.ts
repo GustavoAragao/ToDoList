@@ -3,5 +3,6 @@ export type TaskProps = {
   title:string;
   description?: string;
   isFinished?: boolean;
+  isFav?: boolean;
   onCheck?: () => void;
 };

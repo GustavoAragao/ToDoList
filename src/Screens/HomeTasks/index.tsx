@@ -6,7 +6,7 @@ import { SearchTask } from '../../Components/SearchTask';
 import  CreateTaskButton  from '../../Components/CreateTaskButton'; 
 import { TrashButton } from '../../Components/TrashButton'; 
 import { FavButton } from '../../Components/FavButton';
-import { useContext, useState } from 'react'; 
+import { useContext, useEffect, useState } from 'react'; 
 import { CardCreateTask } from '../../Components/CardCreateTask';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TaskContext } from '../../Context/TaskContext';
@@ -17,8 +17,17 @@ import { TaskProps } from '../../Utils/types';
 export default function HomeTasks({ navigation }: { navigation: any }) {
 
     const { tasks,clearTasks,handleTaskStatus } = useContext(TaskContext);
+    const[finishedTasks,setFinishedTasks] = useState(0)
+    const[pendingTasks,setPendingTasks] = useState(0)
     console.log("tela HomeTasks abriu")
 
+    useEffect(() => {
+      let finishedTasksCount = tasks.filter((task) => task.isFinished).length; 
+      let pendingTasksCount= tasks.filter((task) => !task.isFinished).length; 
+  
+      setFinishedTasks(finishedTasksCount)
+      setPendingTasks(pendingTasksCount)
+    }, [tasks]);
 
     return (
         <View style={styles.container}>
@@ -32,8 +41,8 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
             }} />
         </View>
         <View style={{flexDirection: 'row'}}>
-        <CardNumber/>
-        <CardNumber/>
+        <CardNumber finishedTasks={finishedTasks} isFinished ={true} />
+        <CardNumber pendingTasks={pendingTasks} isFinished ={false} />
         </View>
       
         <FlatList style={{marginTop:16 }}

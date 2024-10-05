@@ -45,14 +45,14 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const clearTasks = async () => {
     try {
       Alert.alert(
-        "Atenção", // Título do alerta
-        `Deseja realmente excluir todas as tarefas?`, // Mensagem do alerta
+        "Atenção", 
+        `Deseja realmente excluir todas as tarefas?`, 
         [
           {
             text: "Sim",
             onPress: () => {
               AsyncStorage.clear();
-              setTasks([]); // Atualiza o estado com a lista de tarefas filtradas
+              setTasks([]); 
             }
           },
           {
