@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, NativeEventEmitter, StyleSheet, Text, View } from 'react-native';
 import { Task } from '../../Components/Task';
 import { CardNumber } from '../../Components/CardNumber'; 
 import { SearchTask } from '../../Components/SearchTask'; 
@@ -22,6 +22,8 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
     const [favButtonIsPressed, setFavButtonIsPressed] = useState(false);
     const [filteredTasks, setFilteredTasks] = useState<TaskProps[]>(tasks);
 
+    const [nameTask, setNameTask] = useState('');
+
     console.log("tela HomeTasks abriu");
 
     useEffect(() => {
@@ -41,10 +43,13 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
         else if(favButtonIsPressed){
             setFilteredTasks(tasks.filter((task) => task.isFav));
         }
+        else if(nameTask!=''){
+            setFilteredTasks(tasks.filter((task)=>task.title==nameTask))
+        }
         else {
             setFilteredTasks(tasks);
         }
-    }, [tasks, cardNumberFinishedIsPressed, cardNumberPendingIsPressed,favButtonIsPressed]);
+    }, [tasks, cardNumberFinishedIsPressed, cardNumberPendingIsPressed,favButtonIsPressed,nameTask]);
 
     const handlePressFinishedTasksCard = () => {
         if (cardNumberFinishedIsPressed) {
@@ -78,10 +83,16 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
           setCardNumberPendingIsPressed(false);
       }
   };
-
+    
+    const handlePressSearchTaskButton = () => {
+          setCardNumberFinishedIsPressed(false);
+          setCardNumberPendingIsPressed(false);
+          setFavButtonIsPressed(false);
+    }
+    
     return (
         <View style={styles.container}>
-          <SearchTask/>
+          <SearchTask setTaskName={setNameTask} taskName={nameTask} onPress={handlePressSearchTaskButton}/>
           <View style={styles.optionsHomeContainer}>
               <FavButtonFilter isPress = {favButtonIsPressed} onPress={handlePressFavButtonFilter}/>
               <TrashButton onPress={clearTasks} />
