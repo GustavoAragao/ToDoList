@@ -5,11 +5,15 @@ interface CardNumberProps{
     pendingTasks?: number,
     finishedTasks?: number,
     isFinished: boolean,
+    isPress: boolean,
+    onPressIn?: () => void ;
+    onPressOut?: () => void;
+    onPress?: () => void;
 }
 
-export function CardNumber({pendingTasks,finishedTasks,isFinished}: CardNumberProps){
+export function CardNumber({pendingTasks,finishedTasks,isFinished,isPress, onPress}: CardNumberProps){
     return(
-    <Container isFinished = {isFinished}>
+    <Container onPress = {onPress} isPress = {isPress} isFinished = {isFinished}>
         {isFinished && <Feather name="check" size={24} color="black" />}
         {!isFinished && <Feather name="clock" size={24} color="black" />}
         {isFinished && <CardTitle> Finalizadas </CardTitle>}

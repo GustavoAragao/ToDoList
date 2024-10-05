@@ -6,6 +6,7 @@ import HomeTasks from '../ToDoList/src/Screens/HomeTasks'
 import CreateTask from '../ToDoList/src/Screens/CreateTask';
 import {TaskProvider} from './src/Context/TaskContext';
 import { Task } from './src/Components/Task';
+import DetailsTask from './src/Screens/DetailsTask';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ export default function App() {
           <Stack.Screen name="Home" component={PresentationApp} />
           <Stack.Screen name="HomeTasks" component={HomeTasks} />
           <Stack.Screen name="CreateTask" component={CreateTask}/>
+          <Stack.Screen name="DetailsTask" component={DetailsTask}/>
         </Stack.Navigator>
     </NavigationContainer>
     </TaskProvider>

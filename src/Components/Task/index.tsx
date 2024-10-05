@@ -4,7 +4,7 @@ import { TaskProps } from '../../Utils/types';
 
 export function Task(props: TaskProps){
     return(
-        <Container isFinished={props.isFinished}>
+        <Container onPress={props.onPress} isFinished={props.isFinished}>
             <TaskCheck onPress={props.onCheck} >
              {props.isFinished && <Feather name="check-square" size={24} color="black" />}
              {!props.isFinished && <Feather name="square" size={24} color="black" />}

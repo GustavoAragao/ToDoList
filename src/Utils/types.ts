@@ -5,4 +5,5 @@ export type TaskProps = {
   isFinished?: boolean;
   isFav?: boolean;
   onCheck?: () => void;
+  onPress?: () => void;
 };
