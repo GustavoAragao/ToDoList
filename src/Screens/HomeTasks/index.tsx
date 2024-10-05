@@ -52,6 +52,7 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
             setFilteredTasks(tasks);
         } else {
             setCardNumberFinishedIsPressed(true);
+            setFavButtonIsPressed(false);
             setCardNumberPendingIsPressed(false); 
         }
     };
@@ -62,6 +63,7 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
             setFilteredTasks(tasks);
         } else {
             setCardNumberPendingIsPressed(true);
+            setFavButtonIsPressed(false);
             setCardNumberFinishedIsPressed(false); 
         }
     };
@@ -72,6 +74,8 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
           setFilteredTasks(tasks);
       } else {
           setFavButtonIsPressed(true);
+          setCardNumberFinishedIsPressed(false);
+          setCardNumberPendingIsPressed(false);
       }
   };
 
