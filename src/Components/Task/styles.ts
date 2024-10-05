@@ -14,9 +14,9 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
     border-radius: 20px;
     background-color: white;
     overflow: hidden;
-    border-width: 3px;  /* Define a largura da borda */
+    border-width: 3px;
     border-color: ${({ isFinished}) => (isFinished? '#4FAC67' : '#F1950C')};
-    margin-bottom: 20px;  /* Adiciona um espaçamento de 10px abaixo de cada tarefa */
+    margin-bottom: 20px;  
 `;
 
 export const TaskText = styled.Text<ContainerProps>`
