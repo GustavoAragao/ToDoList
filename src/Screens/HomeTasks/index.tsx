@@ -21,6 +21,7 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
     const [cardNumberPendingIsPressed, setCardNumberPendingIsPressed] = useState(false);
     const [favButtonIsPressed, setFavButtonIsPressed] = useState(false);
     const [filteredTasks, setFilteredTasks] = useState<TaskProps[]>(tasks);
+    const [wordSearch, setWordSearch]= useState("");
 
     const [nameTask, setNameTask] = useState('');
 
@@ -43,13 +44,17 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
         else if(favButtonIsPressed){
             setFilteredTasks(tasks.filter((task) => task.isFav));
         }
-        else if(nameTask!=''){
-            setFilteredTasks(tasks.filter((task)=>task.title==nameTask))
+        else if(wordSearch!=""){
+            setFilteredTasks(tasks.filter((task)=>task.title==wordSearch))
+            if(nameTask == ''){
+              setWordSearch("");
+              setFilteredTasks(tasks);
+            }
         }
         else {
             setFilteredTasks(tasks);
         }
-    }, [tasks, cardNumberFinishedIsPressed, cardNumberPendingIsPressed,favButtonIsPressed,nameTask]);
+    }, [tasks, cardNumberFinishedIsPressed, cardNumberPendingIsPressed,favButtonIsPressed,wordSearch,nameTask]);
 
     const handlePressFinishedTasksCard = () => {
         if (cardNumberFinishedIsPressed) {
@@ -85,6 +90,7 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
   };
     
     const handlePressSearchTaskButton = () => {
+          setWordSearch(nameTask);
           setCardNumberFinishedIsPressed(false);
           setCardNumberPendingIsPressed(false);
           setFavButtonIsPressed(false);
