@@ -27,6 +27,7 @@ Bem-vindo ao ToDoList! Este é um projeto de gerenciamento de tarefas utilizando
 
 ## Tecnologias Utilizadas:
 
+- Figma: ferramenta de prototipagem.
 - Expo: framework para desenvolvimento de aplicações móveis.
 - TypeScript: linguagem de programação para desenvolvimento de aplicações.
 - React Native: framework para desenvolvimento de aplicações móveis.
