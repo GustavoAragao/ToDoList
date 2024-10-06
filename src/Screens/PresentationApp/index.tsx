@@ -11,7 +11,7 @@ export default function PresentationHome({ navigation }: { navigation: any }) {
       </StartHome>
       <View style={styles.containerBottom}>
         <Text style={styles.textInvite}>Planeje seu tempo</Text>
-        <StartButton  onPress={() => navigation.navigate('HomeTasks')}>
+        <StartButton onPress={() => navigation.navigate('HomeTasks')}>
         </StartButton>
       </View>
       <StatusBar style="auto" />

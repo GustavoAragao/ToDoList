@@ -1,10 +1,13 @@
 import styled from "styled-components/native";
 
-export const ContainerButton = styled.TouchableOpacity`
+interface propsStyleButton{
+  isSave?: boolean;
+}
+export const ContainerButton = styled.TouchableOpacity<propsStyleButton>`
   width: 150px;
   height: 45px;
   border-radius: 17px;
-  background-color:#5C0F8B;
+  background-color:${({ isSave }) => (isSave ? '#4FAC67' : '#5C0F8B')};
   align-items: center;
   padding:5px;
 `

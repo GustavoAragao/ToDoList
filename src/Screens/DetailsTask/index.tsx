@@ -6,6 +6,8 @@ import FavoriteTaskButton from '../../Components/FavoriteTaskButton';
 import {  RouteProp,useRoute } from '@react-navigation/native'; 
 import { TaskProps } from '../../Utils/types';
 import { TaskContext } from '../../Context/TaskContext';
+import {Feather} from '@expo/vector-icons'
+
 
 type RouteParams = {
   DetailsScreen: {
@@ -85,19 +87,23 @@ export default function DetailsTask({ navigation }: { navigation: any }){
 
   return(
     <View style = {styles.container}>
-      <TextInput style = {styles.inputTitle} multiline={true} onChangeText={setTaskText} value={taskText}>
-      </TextInput>
-
-      <Text style={{ alignSelf: 'flex-start', marginTop:15 }}>Descrição:</Text>
-      <View style ={styles.containerDesc}>
-        <TextInput style = {{textAlign: 'justify'}} multiline={true} onChangeText={setTaskDescription} value={taskDescription}>
+      <View style= {{flexDirection:'row',alignSelf:'center',gap: 10}}>
+        <TextInput style = {styles.inputTitle} multiline={true} onChangeText={setTaskText} value={taskText}>
         </TextInput>
+        <Feather name="edit" size={24} color="black" />
       </View>
 
-      <FavoriteTaskButton isFav = {isFavTask} onPress={()=>setIsFavTask(!isFavTask)}></FavoriteTaskButton>
+      <Text style={{ alignSelf: 'flex-start', marginTop:15 }}>Descrição: (clique no texto para editá-lo)</Text>
+      <View style ={styles.containerDesc}>
+        <TextInput style = {{textAlign: 'center', width:'100%',flex:1}} multiline={true} onChangeText={setTaskDescription} value={taskDescription}>
+        </TextInput>
+      </View>
+      <View style={{flex:1,justifyContent:'flex-end', marginBottom: 20}}>
+        <FavoriteTaskButton isFav = {isFavTask} onPress={()=>setIsFavTask(!isFavTask)}/>
+      </View>
       <View style ={styles.optionsButtons}>
         <TrashButton onPress={() => handleRemoveTask(task.id)} />
-        <StartButton onPress={()=> handleUpdateTask(task)}/>
+        <StartButton isSave={true} onPress={()=> handleUpdateTask(task)}/>
       </View>
 
     </View>
@@ -114,7 +120,7 @@ const styles = StyleSheet.create({
   },
   containerDesc: {
     width: '100%',
-    height: 160,
+    height: '30%',
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,
@@ -123,15 +129,16 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   optionsButtons:{
-    marginTop: '80%',
-    paddingHorizontal: 10,
+    marginBottom: 20,
+    paddingHorizontal: 35,
     flexDirection: 'row',
     justifyContent: 'space-between',
     width:'100%'
   },
   inputTitle:{
+    width:'auto',
     fontSize: 32,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
   }
 });

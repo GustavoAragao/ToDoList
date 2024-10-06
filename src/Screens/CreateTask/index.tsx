@@ -1,5 +1,4 @@
 import { Alert, StyleSheet, Text, View } from 'react-native';
-import { StartButton } from '../../Components/StartButton';
 import {CardCreateTask}  from '../../Components/CardCreateTask';
 import CreateTaskButton from '../../Components/CreateTaskButton';
 import { useState } from 'react';
@@ -43,7 +42,6 @@ export default function CreateTask({ navigation }: { navigation: any }){
         </View>
         <View style = {styles.optionsToCreate}>
           <CreateTaskButton isGreen={true} onPress={handleCreateTask}/>
-          <StartButton onPress={()=>navigation.navigate('HomeTasks')}></StartButton>
         </View>
 
       </View>
@@ -53,13 +51,14 @@ export default function CreateTask({ navigation }: { navigation: any }){
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 64,
+      paddingTop: 80,
+      padding: 10,
       justifyContent: 'flex-start',
       alignItems: 'center',
       gap: 16,
     },
     optionsToCreate: {
-      marginBottom: 16,  
+      marginBottom: 20,  
       gap: 16,
       justifyContent: 'center',
       alignItems: 'center',
@@ -69,6 +68,6 @@ export default function CreateTask({ navigation }: { navigation: any }){
       flex: 1,  
       justifyContent: 'flex-end', 
       alignItems: 'center',
-      marginBottom: 32,
+      marginBottom: 20,
     },
 });
