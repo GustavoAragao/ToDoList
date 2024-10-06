@@ -129,7 +129,8 @@ export default function HomeTasks({ navigation }: { navigation: any }) {
               renderItem={({ item }) => {
                 return (
                   <Task 
-                    onPress={() => navigation.navigate("DetailsTask")} 
+                    id={item.id}
+                    onPress={() => navigation.navigate("DetailsTask", { task: item })}
                     title={item.title} 
                     isFinished={item.isFinished} 
                     onCheck={() => handleTaskStatus(item)} 

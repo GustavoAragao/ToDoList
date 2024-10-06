@@ -1,6 +1,6 @@
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import { StartButton } from '../../Components/StartButton';
-import { CardCreateTask } from '../../Components/CardCreateTask';
+import {CardCreateTask}  from '../../Components/CardCreateTask';
 import CreateTaskButton from '../../Components/CreateTaskButton';
 import { useState } from 'react';
 import { TaskProps } from '../../Utils/types';
@@ -18,6 +18,7 @@ export default function CreateTask({ navigation }: { navigation: any }){
 
     const handleCreateTask =  () => {
       const newTask: TaskProps = {
+        id: tasks.length+1,
         title: nameTask,
         description: descriptionTask,
         isFinished: false,
@@ -71,4 +72,3 @@ export default function CreateTask({ navigation }: { navigation: any }){
       marginBottom: 32,
     },
 });
-  
