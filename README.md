@@ -67,7 +67,7 @@ npm install formik yup
 
 * `Components`: pasta contendo os componentes da aplicação, sendo estes separados por pastas contendo os arquivos styles.ts e index.tsx.
 
-* `Context`: pasta contendo o contexto de autenticação.
+* `Context`: contém o contexto responsável por gerenciar as operações de CRUD (Create, Read, Update, Delete) em tarefas, além de lidar com o armazenamento local usando o AsyncStorage.
 
 * `Screens`: pasta contendo as telas da aplicação:
     * `CreateTask` - Tela que permite a criação da tarefa.
